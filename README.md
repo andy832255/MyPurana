@@ -1,0 +1,2 @@
+# MyPurana
+BlueArchive Assistant
