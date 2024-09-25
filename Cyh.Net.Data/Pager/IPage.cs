@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Cyh.Net.Data.PageUtils
+namespace Cyh.Net.Data.Pager
 {
     public interface IPage : IEnumerable
     {

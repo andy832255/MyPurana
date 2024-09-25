@@ -1,6 +1,7 @@
 ﻿using Cyh.Net;
-using Cyh.Net.Data.Expressions;
-using Cyh.Net.Data.PageUtils;
+using Cyh.Net.Data;
+using Cyh.Net.Data.Pager;
+using Cyh.Net.Data.Predicate;
 using MyPurana.Data.Skill.Enums;
 using MyPurana.Data.Skill.ViewModel;
 using MyPurana.Model.ViewModel;
@@ -24,28 +25,42 @@ namespace MyPurana.TestConsole
                 EffectTypes = [EffectType.Buff],
             };
 
-            var exprMaker = ExpressionMaker.GetExpressionMaker<SkillView>(LinkType.And);
+            IPredicateHolder<SkillView> skillViewPredicate = Predicate.NewPredicateHolder<SkillView>(x => true);
 
-            var skvs = new List<IExpressionMaker<SkillView>>()
+            if (!skillSearch.StudentName.IsNullOrEmpty())
             {
-                exprMaker.GetExpressionMakerContains("SkillLevel", skillSearch.SkillLevels),
-                exprMaker.GetExpressionMakerContains("SkillType", skillSearch.SkillTypes),
-                exprMaker.GetExpressionMakerContains("SkillSubType", skillSearch.SkillSubTypes),
-                exprMaker.GetExpressionMakerContains("EffectType", skillSearch.EffectTypes),
-                exprMaker.GetExpressionMakerContains("EffectSubType", skillSearch.EffectSubTypes),
-                exprMaker.GetExpressionMakerContains("EffectStat", skillSearch.EffectStats),
-                exprMaker.GetExpressionMakerContains("EffectStatType", skillSearch.EffectStatTypes),
-                exprMaker.GetExpressionMaker("EffectValue", CompareType.LessThan, 0)
-            }.ToArray();
+                skillViewPredicate.And(x => x.StudentName.Contains(skillSearch.StudentName));
+            }
+            if (!skillSearch.SkillName.IsNullOrEmpty())
+            {
+                skillViewPredicate.And(x => x.SkillName.Contains(skillSearch.SkillName));
+            }
+            if (!skillSearch.SkillLevels.IsNullOrEmpty())
+            {
+                skillViewPredicate.And(x => skillSearch.SkillLevels.Contains(x.SkillLevel));
+            }
+            if (!skillSearch.SkillTypes.IsNullOrEmpty())
+            {
+                skillViewPredicate.And(x => skillSearch.SkillTypes.Contains(x.SkillType));
+            }
+            if (!skillSearch.SkillSubTypes.IsNullOrEmpty())
+            {
+                skillViewPredicate.And(x => skillSearch.SkillSubTypes.Contains(x.SkillSubType));
+            }
+            if (!skillSearch.EffectStats.IsNullOrEmpty())
+            {
+                skillViewPredicate.And(x => skillSearch.EffectStats.Contains(x.EffectStat));
+            }
+            if (!skillSearch.EffectSubTypes.IsNullOrEmpty())
+            {
+                skillViewPredicate.And(x => skillSearch.EffectSubTypes.Contains(x.EffectSubType));
+            }
 
-            PageList<SkillView> skillPages = new PageList<SkillView>(
-                skService.GetQueryable(),
-                skvs.MakeExpression(),
-                10);
-            skillPages.OrderBy(x => x.EffectValue, 1);
+            var predicate = skillViewPredicate.GetPredicate();
 
-            var p1 = skillPages[0];
-            var p2 = skillPages[1];
+            var pages = Pager.CreatePageList(skService.GetQueryable(), predicate, 100);
+
+            var page1 = pages[0].ToList();
 
             Console.WriteLine("Hello, World!");
         }

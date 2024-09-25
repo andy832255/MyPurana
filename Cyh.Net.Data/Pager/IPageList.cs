@@ -1,4 +1,4 @@
-﻿namespace Cyh.Net.Data.PageUtils
+﻿namespace Cyh.Net.Data.Pager
 {
     public interface IPageList : IEnumerable<IPage>
     {
@@ -10,5 +10,6 @@
     public interface IPageList<T> : IPageList, IEnumerable<IPage<T>>
     {
         new IEnumerable<IPage<T>> Pages { get; }
+        IPage<T> this[int index] { get; }
     }
 }

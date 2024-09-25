@@ -1,19 +1,17 @@
 ﻿using Cyh.Net;
-using Cyh.Net.Data.Expressions;
 using MyPurana.Data.Skill.Enums;
-using MyPurana.Data.Skill.ViewModel;
 
 namespace MyPurana.Model.ViewModel
 {
-    public class SkillSearchEnum : IExpressionMakerGenerator<SkillView>
+    public class SkillSearchEnum
     {
-        static int[] _allLevel;
-        static SkillType[] _allSkillTypes;
-        static SkillSubType[] _allSkillSubTypes;
-        static EffectType[] _allEffectTypes;
-        static EffectSubType[] _allEffectSubTypes;
-        static EffectStat[] _allEffectStats;
-        static EffectStatCalcType[] _allEffectStatTypes;
+        static readonly int[] _allLevel;
+        static readonly SkillType[] _allSkillTypes;
+        static readonly SkillSubType[] _allSkillSubTypes;
+        static readonly EffectType[] _allEffectTypes;
+        static readonly EffectSubType[] _allEffectSubTypes;
+        static readonly EffectStat[] _allEffectStats;
+        static readonly EffectStatCalcType[] _allEffectStatTypes;
         int[]? _skillLevels { get; set; }
         SkillType[]? _skillTypes { get; set; }
         SkillSubType[]? _skillSubTypes { get; set; }

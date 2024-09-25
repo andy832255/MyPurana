@@ -1,12 +1,10 @@
 ﻿using Cyh.Net;
-using Cyh.Net.Data.Expressions;
 using MyPurana.Data.Skill.Enums;
-using MyPurana.Data.Skill.ViewModel;
 using System.Text.Json.Serialization;
 
 namespace MyPurana.Model.ViewModel
 {
-    public class SkillSearch : IExpressionMakerGenerator<SkillView>
+    public class SkillSearch
     {
 
         [JsonPropertyName("student_id")]

@@ -1,4 +1,4 @@
-﻿namespace Cyh.Net.Data.Expressions
+﻿namespace Cyh.Net.Data.Predicate
 {
     public enum LinkType
     {

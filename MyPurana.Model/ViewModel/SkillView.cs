@@ -43,5 +43,10 @@ namespace MyPurana.Data.Skill.ViewModel
         public string? EffectRestrictionProperty { get; set; } = string.Empty;
         public string? EffectRestrictionOperand { get; set; } = string.Empty;
         public string? EffectRestrictionValue { get; set; } = string.Empty;
+
+        public override string ToString()
+        {
+            return $"名稱：{this.StudentName}, 技能：{this.SkillName}, 等級：{this.SkillLevel}, 說明：{this.SkillDesc}";
+        }
     }
 }
