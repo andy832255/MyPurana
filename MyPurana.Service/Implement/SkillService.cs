@@ -161,7 +161,7 @@ namespace MyPurana.Service.Implement
             this.DbSkillEffects = new List<DbSkillEffect>();
             this.DbSkillEffectRestrictions = new List<DbSkillEffectRestriction>();
             this.DbSkillEffectValues = new List<DbSkillEffectValue>();
-            string jsonFile = File.ReadAllText("D:\\Github\\students.json");
+            string jsonFile = File.ReadAllText(jsonPath);
             this.LoadJson(jsonFile);
         }
 
