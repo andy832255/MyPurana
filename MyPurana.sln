@@ -19,9 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPurana.Data", "MyPurana.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPurana.Model", "MyPurana.Model\MyPurana.Model.csproj", "{D268F126-6E9B-4D12-A505-B5F82C0D54C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPurana.Service", "MyPurana.Service\MyPurana.Service.csproj", "{795F7D05-F91C-452C-A0B2-441AD8DF4A17}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyKivotos", "MyKivotos\MyKivotos.csproj", "{C63E476F-59C8-4CD8-9F62-90B9551395DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPurana.Service", "MyPurana.Service\MyPurana.Service.csproj", "{795F7D05-F91C-452C-A0B2-441AD8DF4A17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +51,6 @@ Global
 		{795F7D05-F91C-452C-A0B2-441AD8DF4A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{795F7D05-F91C-452C-A0B2-441AD8DF4A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{795F7D05-F91C-452C-A0B2-441AD8DF4A17}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C63E476F-59C8-4CD8-9F62-90B9551395DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C63E476F-59C8-4CD8-9F62-90B9551395DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C63E476F-59C8-4CD8-9F62-90B9551395DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C63E476F-59C8-4CD8-9F62-90B9551395DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
